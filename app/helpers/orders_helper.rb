@@ -20,7 +20,7 @@ module OrdersHelper
     order_item_info
   end
 
-  def set_order_data_collection
+  def order_text
     message = String.new("Информация о заказе: #{@order.id}\n")
     message << "-------------\n"
     message << "Имя: #{@order.name}\nТелефон: #{@order.phone}\n"
@@ -40,30 +40,6 @@ module OrdersHelper
     message << order_to_string
     message << "-------------\n"
     message << "За всё: #{@order.total_for_pizzas} BYN"
-  end
-
-  def send_order_to_telegram
-    message = set_order_data_collection
-    chat_ids = Rails.configuration.chat_ids
-    token = Rails.application.credentials.telegram_token
-    # Если есть токен, отправить сообщение в телеграм-бот
-    if token
-      chat_ids.each do |chat_id|
-        uri = URI("https://api.telegram.org/bot#{token}/sendMessage?")
-        res = Net::HTTP.post_form(uri, 'chat_id' => chat_id.to_s, 'parse_mode' => 'html', 'text' => message)
-
-        case res
-        when Net::HTTPOK
-          logger.info { "Order #{@order.id} successfully telegrammed" }
-        when Net::HTTPBadRequest
-          logger.error { "Order #{@order.id} error caused by method sendMessage" }
-        when Net::HTTPUnauthorized
-          logger.error { 'Incorrect or outdated bot token' }
-        else
-          logger.fatal { "Return #{res}" }
-        end
-      end
-    end
   end
 
   def order_total

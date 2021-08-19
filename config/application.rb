@@ -24,7 +24,7 @@ module Firepizza
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.i18n.default_locale = :ru
-    config.chat_ids = %w[126953160 1198808944]
+    config.chat_ids = %w[126953160]
     # Number of pizzas in one row
     config.quantity_in_a_row = 3
     # Configuration for the application, engines, and railties goes here.

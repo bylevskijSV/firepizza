@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update(order_params)
       set_confirmed_by
-      send_order_to_telegram
+      SendTelegramWorker.perform_async(order_text, @order.id)
       session.delete(:order_id)
       session.delete(:cart)
       render :confirm
