@@ -1,0 +1,18 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'styles_delivery', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<section>
+  <div class="cart">
+    <div class="cart-headline">
+      <p>Доставка</p>
+    </div>
+
+    <div class="cart-content">
+      <p>Доставка осуществляется на территории Минска.</p>
+    </div>
+
+    <div class="cart-footer">
+      <button><%= link_to "Перейти в меню", menu_index_path %></button>
+    </div>
+  </div>
+</section>

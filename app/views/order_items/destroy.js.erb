@@ -1,0 +1,5 @@
+$(".cart1").html("<%= escape_javascript(render 'layouts/cart') %>")
+$(".main-cart").html("<%= escape_javascript(render 'carts/cart_item') %>")
+<% if order_items_size == 0 %>
+$(".cart-footer").html("<%= escape_javascript(render 'carts/cart_footer') %>")
+<% end %>

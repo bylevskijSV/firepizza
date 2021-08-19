@@ -1,0 +1,10 @@
+<% if current_page?('/menu') %>
+  <h1 class="burger_menu_active"><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
+  <h1><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+<% elsif current_page?('/delivery') %>
+  <h1><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
+  <h1 class="burger_menu_active"><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+<% else %>
+  <h1><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
+  <h1><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+<% end %>

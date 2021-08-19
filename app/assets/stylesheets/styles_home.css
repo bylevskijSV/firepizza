@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#video {
+  position: fixed;
+  right: 30;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+.cont {
+  position: absolute;
+  width: 100%;
+  margin-top: 15px;
+}
+.content {
+  width: 100%;
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.links div a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: calc(16px + 16 * (100vw / 1920));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
+  transition: 0.5s;
+}
+.links div a:hover {
+  transition: 0.5s;
+  font-size: calc(18px + 16 * (100vw / 1920));
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+.logo figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.text {
+  color: white;
+  font-size: calc(25px + 16 * (100vw / 1920));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 1000px) {
+  .text {
+      margin-top: 70px;
+  }
+}
+.line {
+  background-color: white;
+  width: 15%;
+  height: 5px;
+  margin: 30px auto;
+}
+.contacts {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.contacts div {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.contacts div svg {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+.contacts div svg:hover {
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+
+}
+.info {
+  background-color: black;
+  width: 100%;
+  margin-top: 150px;
+}
+.info figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+.info p {
+  color: #5b5b5b;
+  font-size: calc(13px + 16 * (100vw / 1920));
+  text-align: center;
+  margin-top: 12px;
+}

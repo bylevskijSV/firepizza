@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <title>Firepizza</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo_final.png'%>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="content">
+      <%= render 'layouts/navigation' %>
+
+      <%= yield %>
+
+      <%= render 'layouts/footer' %>
+    </div>
+    <%= javascript_pack_tag 'scripts_menu', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

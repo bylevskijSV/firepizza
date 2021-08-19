@@ -1,0 +1,21 @@
+<% if order_items_size > 0 %>
+  <% cart_items.each do |item| %>
+    <div class="cart-item">
+      <button><%= link_to 'Удалить', item, method: :delete, remote: true %></button>
+      <%= image_tag(item.product.photo, size: "90x90", alt: item.product.name) %>
+      <%= item.product.name %>
+      <br>
+      <div class="sep"></div>
+      <%= form_for(item, remote: true) do |f| %>
+        <%= f.hidden_field :product_id, value: item.product.id %>
+        <p>Количество</p>
+        <%= f.number_field :quantity, value: item.quantity.to_i, min: 1 %>
+        <%= f.submit "Обновить количество", style: "width: 160%; font-size: calc(6px + 16 * (100vw / 1920));"%>
+      <% end %>
+      Цена: <%= item.total_price %> BYN
+    </div>
+  <% end %>
+  <p>Итого <%= order_total %> BYN </p>
+<% else %>
+  <p> Корзина пуста.</p>
+<% end %>

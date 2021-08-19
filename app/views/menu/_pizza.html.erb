@@ -1,0 +1,51 @@
+<% row_count_ceil.times do |i| %>
+  <% iter = 1 + i %>
+  <div class="line<%= iter.even? ? "" : "two" %>"></div>
+
+  <div class="pizzas">
+    <div class="pizza_row<%= (iter == row_count_ceil) && !all_full_row? ? "_two" : ""%>">
+
+      <% @pizzas.each do |pizza| %>
+        <% if pizza.position.between?(@f_border, @s_border) %>
+          <div class="pizza_row_item <%= pizza.photo %>">
+            <figure class="pizza_row_item_photo">
+              <%= image_tag("#{pizza.photo}.png", class: "image") %>
+            </figure>
+            <div class="pizza_row_item_sub">
+              <h1><%= pizza.name %></h1>
+              <p>от <%= pizza.price %> руб.</p>
+            </div>
+
+            <div class="pizza_row_item_hovered_<%= pizza.photo %>">
+              <div>
+                <figure class="pizza_row_item_photo">
+                  <%= image_tag "#{pizza.photo}.jpg", class: "photo_exp" %>
+                </figure>
+              </div>
+              <div class="pizza_row_item_hovered_content">
+                <h1><%= pizza.name %></h1>
+                <p>(<%= pizza.ingredients %>)</p>
+                <h3><%= pizza.price %> руб, <%= pizza.weight %>г.</h3>
+                <div class="pizza_row_item_button_id<%= pizza.id %>">
+                  <% if in_cart?(pizza.id) %>
+                    <p>Пицца в корзине!</p>
+                  <% else %>
+                    <%= form_for(@order_item, remote: true) do |f| %>
+                      <%= f.hidden_field :product_id, value: pizza.id %>
+                      <%= f.hidden_field :quantity, value: 1, min: 1%>
+                      <%= f.submit "В корзину", class: 'submit_btn' %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%
+    @f_border += quantity_in_a_row
+    @s_border += quantity_in_a_row
+  %>
+<% end %>

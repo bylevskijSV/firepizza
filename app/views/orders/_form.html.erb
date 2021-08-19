@@ -1,0 +1,44 @@
+<section>
+  <div class="delivery">
+    <div class="delivery-headline">
+      <p>Доставка</p>
+    </div>
+
+    <div class="delivery-content">
+      <h1>Чтобы оформить Ваш заказ, заполните форму</h1>
+      <%= render 'errors' %>
+      <div class="delivery-content-form">
+        <%= form_with(model: @order, local: true) do |f| %>
+          <p>Имя: *</p>
+          <%= f.text_field :name %>
+          <p>Контактный телефон: *</p>
+          <%= f.phone_field :phone, value: '+375' %>
+          <br>
+          <div class="delivery-content-form-minsk">
+            <h1>Адрес доставки в Минске</h1>
+            <p>Улица: *</p>
+            <%= f.text_field :street %>
+
+            <div class="delivery-content-form-minsk-homeaddress">
+              <div>
+                <p>Номер дома: *</p>
+                <%= f.number_field :house_number, min: 1, max: 200 %>
+              </div>
+              <div class="l">
+                <p>Номер корпуса:</p>
+                <%= f.number_field :subway_number,  min: 1, max: 200 %>
+              </div>
+              <div class="l">
+                <p>Номер квартиры:</p>
+                <%= f.number_field :apartment_number, min: 1, max: 1000 %>
+              </div>
+            </div>
+            <h2 class="delivery-content-form-minsk-homeaddress-note">Примечание (подъезд, этаж, доп. номер телефона):</h2>
+            <%= f.text_field :note, style: "padding: 10px; margin-top: 30px;" %>
+            <%= f.submit "Подтвердить заказ", class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+<% if current_order.errors.any? || @order_item.errors.any? %>
+alert('Invalid')
+<% else %>
+$(".cart1").html("<%= escape_javascript(render 'layouts/cart') %>")
+$(".pizza_row_item_button_id<%= @order_item.product_id %>").html("<p>Пицца в корзине!</p>")
+<% end %>
