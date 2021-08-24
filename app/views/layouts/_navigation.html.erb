@@ -58,10 +58,13 @@
             <%= link_to 'Меню', menu_index_path, class: "header_nav_link #{current_page?('/menu') ? 'active' : '' }"%>
             <%= link_to 'Доставка', delivery_path, class:"header_nav_link #{current_page?('/delivery') ? 'active' : '' }"%>
             <% if user_signed_in? %>
-              <b><%= link_to "#{current_user.name_or_email}", new_user_path, class:"header_nav_link"%></b>
+              <%= link_to "#{current_user.name_or_email}", new_user_path, class:"header_nav_link"%>
+              <%= link_to "Выйти из профиля", session_path, class:"header_nav_link", data: {method: :delete}%>
             <% else %>
-              <%= link_to 'Войти', new_user_path, class:"header_nav_link #{current_page?('/users/new') ? 'active' : '' }"%>
+              <%= link_to "Войти", new_session_path, class:"header_nav_link"%>
+              <%= link_to 'Зарегестрироваться', new_user_path, class:"header_nav_link #{current_page?('/users/new') ? 'active' : '' }"%>
             <% end %>
+            
           <% #instagram %>
           <a href="https://www.instagram.com/fire_pizza_bus">
             <svg class="header_nav_link" height="36px" viewBox="0 0 511 511.9" width="36px"

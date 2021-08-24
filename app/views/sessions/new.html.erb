@@ -1,0 +1,28 @@
+<% provide :page_tile, 'Войти' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'styles_delivery', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<section>
+  <div class="delivery">
+    <div class="delivery-headline">
+      <p>Войти</p>
+    </div>
+
+    <div class="delivery-content">
+      <%#= render 'errors' %>
+      <div class="delivery-content-form">
+        <%= form_with url: session_path do |f| %>
+          <p>Email: *</p>
+          <%= f.email_field :email %>
+
+          <p>Пароль</p>
+          <%= f.password_field :password, style: "padding: 10px; margin-top: 30px;" %>
+
+          <%= f.submit "Войти", class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

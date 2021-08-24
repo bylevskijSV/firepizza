@@ -4,5 +4,7 @@
   <% if user_signed_in? %>
     <h1><%= link_to "#{current_user.name_or_email}", new_user_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
   <% else %>
-    <h1 <%= current_page?('/users/new') ? "class=burger_menu_active" : ''%> ><%= link_to 'Войти', new_user_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+    <h1 <%= current_page?('/users/new') ? "class=burger_menu_active" : ''%> ><%= link_to 'Зарегестрироваться', new_user_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
   <% end %>
+
+  <h1><%= link_to "Войти", new_session_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
