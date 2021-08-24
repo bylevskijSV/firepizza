@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
   mount API => '/'
 
-  resources :users, only: %i[new create]
+  resource :session, only: %i[new create destroy]
+  resources :users, only: %i[new create edit update]
 
   resources :menu, only: [:index]
   get 'delivery', to: 'deliveries#index'
