@@ -11,6 +11,15 @@ module ApplicationHelper
     end
   end
 
+  def full_title(page_title = "")
+    base_title = 'FirePizza'
+    if page_title.present?
+      "#{page_title} | #{base_title}"
+    else
+      base_title
+    end
+  end
+
   def order_items_size
     OrderItem.where(order_id: session[:order_id]).size
   end
