@@ -13,13 +13,15 @@
 ActiveRecord::Schema.define(version: 2021_08_02_154339) do
 
   create_table "order_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "order_id"
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
     t.float "unit_price"
     t.integer "quantity"
     t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
