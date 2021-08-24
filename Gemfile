@@ -26,7 +26,8 @@ gem 'grape', '~> 1.5', '>= 1.5.3'
 # gem 'kaminari', '~> 1.2', '>= 1.2.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# https://github.com/ddnexus/pagy
+gem 'pagy', '~> 4.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
