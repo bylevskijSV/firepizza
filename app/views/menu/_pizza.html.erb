@@ -23,7 +23,7 @@
             </figure>
             <div class="pizza_row_item_sub">
               <h1><%= pizza.name %></h1>
-              <p>от <%= pizza.price %> руб.</p>
+              <p>от <%= pizza.number_to_price %></p>
             </div>
 
             <div class="pizza_row_item_hovered_<%= pizza.photo %>">
@@ -35,7 +35,7 @@
               <div class="pizza_row_item_hovered_content">
                 <h1><%= pizza.name %></h1>
                 <p>(<%= pizza.ingredients %>)</p>
-                <h3><%= pizza.price %> руб, <%= pizza.weight %>г.</h3>
+                <h3><%= pizza.number_to_price %>, <%= pizza.number_to_weight %></h3>
                 <div class="pizza_row_item_button_id<%= pizza.id %>">
                   <% if in_cart?(pizza.id) %>
                     <p>Пицца в корзине!</p>
