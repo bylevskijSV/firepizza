@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
   mount API => '/'
 
-  root "home#index"
+  resources :users, only: %i[new create]
 
   resources :menu, only: [:index]
   get 'delivery', to: 'deliveries#index'
   resource  :cart, only: [:show]
   resources :orders, only: [:edit, :update]
   resources :order_items
+
+  root "home#index"
 end
