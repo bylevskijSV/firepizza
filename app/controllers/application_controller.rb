@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ErrorHandling
   include ApplicationHelper
   before_action :create_session_cart
 
