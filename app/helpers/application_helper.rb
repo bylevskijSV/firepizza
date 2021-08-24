@@ -1,6 +1,11 @@
 module ApplicationHelper
   include Pagy::Frontend
   
+  def pagination(obj)
+    raw(pagy_nav(obj)) if obj.pages > 1
+  end
+
+
   def current_order
     if !session[:order_id].nil?
       Order.find(session[:order_id])
