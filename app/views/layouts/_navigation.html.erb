@@ -58,7 +58,7 @@
             <%= link_to 'Меню', menu_index_path, class: "header_nav_link #{current_page?('/menu') ? 'active' : '' }"%>
             <%= link_to 'Доставка', delivery_path, class:"header_nav_link #{current_page?('/delivery') ? 'active' : '' }"%>
             <% if user_signed_in? %>
-              <b><%= link_to "#{current_user.name}", new_user_path, class:"header_nav_link"%></b>
+              <b><%= link_to "#{current_user.name_or_email}", new_user_path, class:"header_nav_link"%></b>
             <% else %>
               <%= link_to 'Войти', new_user_path, class:"header_nav_link #{current_page?('/users/new') ? 'active' : '' }"%>
             <% end %>
