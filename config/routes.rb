@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :menu, only: [:index]
   get 'delivery', to: 'deliveries#index'
-  resource  :carts, only: [:show]
+  resource  :cart, only: [:show]
   resources :orders, only: [:edit, :update]
   resources :order_items
 end
