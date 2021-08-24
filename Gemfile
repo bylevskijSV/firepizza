@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'will_paginate', '~> 3.3'
 # https://github.com/mperham/sidekiq/wiki
 gem 'sidekiq', '~> 6.2', '>= 6.2.1'
+# https://github.com/ruby-grape/grape
+gem 'grape', '~> 1.5', '>= 1.5.3'
 # gem 'kaminari', '~> 1.2', '>= 1.2.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
