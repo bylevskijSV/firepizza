@@ -1,12 +1,22 @@
+<%
+  if @pagy.page == 2
+    f_border = @pagy.offset + 1
+    s_border = @pagy.offset + quantity_in_a_row
+  else
+    f_border = 1
+    s_border = quantity_in_a_row
+  end
+%>
+
 <% row_count_ceil.times do |i| %>
   <% iter = 1 + i %>
-  <div class="line<%= iter.even? ? "" : "two" %>"></div>
 
+  <div class="line<%= iter.even? ? "" : "two" %>"></div>
   <div class="pizzas">
     <div class="pizza_row<%= (iter == row_count_ceil) && !all_full_row? ? "_two" : ""%>">
 
       <% @pizzas.each do |pizza| %>
-        <% if pizza.position.between?(@f_border, @s_border) %>
+        <% if pizza.position.between?(f_border, s_border) %>
           <div class="pizza_row_item <%= pizza.photo %>">
             <figure class="pizza_row_item_photo">
               <%= image_tag("#{pizza.photo}.png", class: "image") %>
@@ -45,7 +55,8 @@
     </div>
   </div>
   <%
-    @f_border += quantity_in_a_row
-    @s_border += quantity_in_a_row
+      f_border += quantity_in_a_row
+      s_border += quantity_in_a_row
   %>
 <% end %>
+

@@ -4,10 +4,8 @@ class MenuController < ApplicationController
                 :quantity_in_a_row, :second_border, :in_cart?
 
   def index
-    @pizzas = Product.order(:position)
+    @pagy, @pizzas = pagy Product.order(:position)
     @order_item = current_order.order_items.new
-    @f_border = 1
-    @s_border = quantity_in_a_row
   end
 
 end
