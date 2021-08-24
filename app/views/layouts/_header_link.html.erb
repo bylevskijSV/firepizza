@@ -1,10 +1,8 @@
-<% if current_page?('/menu') %>
-  <h1 class="burger_menu_active"><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
-  <h1><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
-<% elsif current_page?('/delivery') %>
-  <h1><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
-  <h1 class="burger_menu_active"><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
-<% else %>
-  <h1><%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
-  <h1><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
-<% end %>
+  <h1 <%= current_page?('/menu') ? 'class=burger_menu_active' : ''%> > <%= link_to 'Меню', menu_index_path, style: "text-decoration: none; color: black; font-family: serif" %></h1>
+  <h1 <%= current_page?('/delivery') ? "class=burger_menu_active" : ''%> ><%= link_to 'Доставка', delivery_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+
+  <% if user_signed_in? %>
+    <h1><%= link_to "#{current_user.name}", new_user_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+  <% else %>
+    <h1 <%= current_page?('/users/new') ? "class=burger_menu_active" : ''%> ><%= link_to 'Войти', new_user_path, style: "text-decoration: none; color: black; font-family: serif"%></h1>
+  <% end %>

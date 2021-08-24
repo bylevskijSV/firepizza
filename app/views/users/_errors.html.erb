@@ -1,0 +1,9 @@
+<% if @user.errors.any? %>
+  <h2>Количество ошибок: <%= @user.errors.count %> </h2>
+  <h4 class="alert-heading">Следующие ошибки не позволили сохранить заказ</h4>
+  <ul>
+    <% @user.errors.each do |error| %>
+      <li> <%= error.message  %></li>
+    <% end %>
+  </ul>
+<% end %>

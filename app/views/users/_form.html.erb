@@ -1,0 +1,24 @@
+<section>
+  <div class="delivery">
+    <div class="delivery-headline">
+      <p>Регистрация</p>
+    </div>
+
+    <div class="delivery-content">
+      <%= render 'errors' %>
+      <div class="delivery-content-form">
+        <%= form_with model: @user do |f| %>
+          <p>Email: *</p>
+          <%= f.email_field :email %>
+          <p>Имя: *</p>
+          <%= f.text_field :name, style: "padding: 10px; margin-top: 30px;" %>
+          <p>Пароль</p>
+          <%= f.password_field :password, style: "padding: 10px; margin-top: 30px;" %>
+          <p>Повторите пароль</p>
+          <%= f.password_field :password_confirmation, style: "padding: 10px; margin-top: 30px;" %>
+          <%= f.submit "Зарегистрироваться", class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

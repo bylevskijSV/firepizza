@@ -55,16 +55,13 @@
 
       <div class="header_nav_links">
         <div class="header_nav_links_container">
-          <% if current_page?('/menu') %>
-            <%= link_to 'Меню', menu_index_path, class:'header_nav_link active'%>
-            <%= link_to 'Доставка', delivery_path, class:'header_nav_link'%>
-          <% elsif current_page?('/delivery') %>
-            <%= link_to 'Меню', menu_index_path, class:'header_nav_link '%>
-            <%= link_to 'Доставка', delivery_path, class:'header_nav_link active'%>
-          <% else %>
-            <%= link_to 'Меню', menu_index_path, class:'header_nav_link'%>
-            <%= link_to 'Доставка', delivery_path, class:'header_nav_link'%>
-          <% end %>
+            <%= link_to 'Меню', menu_index_path, class: "header_nav_link #{current_page?('/menu') ? 'active' : '' }"%>
+            <%= link_to 'Доставка', delivery_path, class:"header_nav_link #{current_page?('/delivery') ? 'active' : '' }"%>
+            <% if user_signed_in? %>
+              <b><%= link_to "#{current_user.name}", new_user_path, class:"header_nav_link"%></b>
+            <% else %>
+              <%= link_to 'Войти', new_user_path, class:"header_nav_link #{current_page?('/users/new') ? 'active' : '' }"%>
+            <% end %>
           <% #instagram %>
           <a href="https://www.instagram.com/fire_pizza_bus">
             <svg class="header_nav_link" height="36px" viewBox="0 0 511 511.9" width="36px"
