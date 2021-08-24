@@ -1,4 +1,4 @@
-
+require 'faker'
 
 Product.destroy_all
 
@@ -13,6 +13,16 @@ pizza8 = Product.create(name: "Пепперони", price: 10, ingredients: "т�
 pizza9 = Product.create(name: "Примавера", price: 14, ingredients: "томатный соус, сыр моцарелла, перчик болгарский, соус песто, каперсы, руккола, пармезан, орегано", description: "вкусно", weight: 470, photo: "primavera", position: 9)
 pizza10 = Product.create(name: "Четыре сыра", price: 14, ingredients: "томатный соус, сыр моцарелла, Дор Блю, Чеддер, Пармезан, орегано, базилик", description: "вкусно", weight: 420, photo: "fourcheeses", position: 10)
 pizza11 = Product.create(name: "Маргарита", price: 8, ingredients: "томатный соус, сыр моцарелла, орегано, базилик", description: "вкусно", weight: 380, photo: "margarita", position: 11)
+
+10.times do |i|
+  name = Faker::Dessert.variety
+  price = Faker::Number.number(digits: 2)
+  ingredients = Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4)
+  description = Faker::Lorem.word
+  weight = Faker::Number.number(digits: 3)
+  position = i + 12
+  Product.create(name: name, price: price, ingredients: ingredients, description: description, weight: weight, photo: "none", position: position)
+end
 
 puts "Total number of products: #{Product.all.count}"
 puts "Product names: #{Product.all.pluck("name")}"

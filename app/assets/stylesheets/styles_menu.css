@@ -230,13 +230,16 @@
 .margarita:hover > .pizza_row_item_hovered_margarita {
     display: block;
 }
+.none:hover > .pizza_row_item_hovered_none {
+  display: block;
+}
 
-.vetchina, .barbekyu, .chicken, .pepperoni, .primavera, .fourcheeses, .bavarian, .fire, .meaty, .montanara, .margarita {
+.vetchina, .barbekyu, .chicken, .pepperoni, .primavera, .fourcheeses, .bavarian, .fire, .meaty, .montanara, .margarita, .none {
     position: relative;
 }
 .pizza_row_item_hovered_vetchina, .pizza_row_item_hovered_barbekyu, .pizza_row_item_hovered_chicken, .pizza_row_item_hovered_pepperoni, 
 .pizza_row_item_hovered_primavera, .pizza_row_item_hovered_fourcheeses, .pizza_row_item_hovered_bavarian, .pizza_row_item_hovered_fire,
-.pizza_row_item_hovered_meaty, .pizza_row_item_hovered_montanara, .pizza_row_item_hovered_margarita {
+.pizza_row_item_hovered_meaty, .pizza_row_item_hovered_montanara, .pizza_row_item_hovered_margarita, .pizza_row_item_hovered_none {
     color: white;
     width: 110%;
     height: 110%;
