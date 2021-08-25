@@ -7,10 +7,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by email: params[:email]
     if user&.authenticate(params[:password])
-      sing_in(user)
+      sing_in user
+      remember(user) if params[:remebmer_me] == '1'
       redirect_to menu_index_path
     else
-      redirect_to new_session_path
+      render :new
     end
   end
 

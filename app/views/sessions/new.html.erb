@@ -15,10 +15,13 @@
       <div class="delivery-content-form">
         <%= form_with url: session_path do |f| %>
           <p>Email: *</p>
-          <%= f.email_field :email %>
+          <%= f.email_field :email, value: params[:email] %>
 
           <p>Пароль</p>
           <%= f.password_field :password, style: "padding: 10px; margin-top: 30px;" %>
+
+          <p>Запомнить меня</p>
+          <%= f.check_box :remember_me, value: '1' %>
 
           <%= f.submit "Войти", class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
         <% end %>
