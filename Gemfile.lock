@@ -215,6 +215,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    valid_email2 (4.0.0)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -252,6 +255,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
+  valid_email2 (~> 4.0)
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 

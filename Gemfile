@@ -32,7 +32,8 @@ gem 'pagy', '~> 4.11'
 gem 'bootsnap', '>= 1.4.4', require: false
 # https://github.com/drapergem/draper
 gem 'draper', '~> 4.0'
-
+# https://github.com/micke/valid_email2
+gem "valid_email2", '~> 4.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
