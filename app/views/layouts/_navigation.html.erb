@@ -60,6 +60,7 @@
             <% if user_signed_in? %>
               <%= link_to "#{current_user.name_or_email}", new_user_path, class:"header_nav_link"%>
               <%= link_to "Выйти из профиля", session_path, class:"header_nav_link", data: {method: :delete}%>
+              <%= link_to "Р", edit_user_path(current_user), class:"header_nav_link"%>
             <% else %>
               <%= link_to "Войти", new_session_path, class:"header_nav_link"%>
               <%= link_to 'Зарегестрироваться', new_user_path, class:"header_nav_link #{current_page?('/users/new') ? 'active' : '' }"%>

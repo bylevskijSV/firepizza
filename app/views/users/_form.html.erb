@@ -1,7 +1,7 @@
 <section>
   <div class="delivery">
     <div class="delivery-headline">
-      <p>Регистрация</p>
+      <p><%= page_title %></p>
     </div>
 
     <div class="delivery-content">
@@ -16,7 +16,14 @@
           <%= f.password_field :password, style: "padding: 10px; margin-top: 30px;" %>
           <p>Повторите пароль</p>
           <%= f.password_field :password_confirmation, style: "padding: 10px; margin-top: 30px;" %>
-          <%= f.submit "Зарегистрироваться", class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
+          
+          <% unless @user.new_record? %>
+            <p>Старый пароль</p>
+            <%= f.password_field :old_password, style: "padding: 10px; margin-top: 30px;" %>
+          <% end %>
+
+          <%= f.submit (@user.new_record? ? "Зарегистрироваться" : "Обновить"),
+            class: "send-email", style: "margin-left: 15%; margin-top: 25px" %>
         <% end %>
       </div>
     </div>
