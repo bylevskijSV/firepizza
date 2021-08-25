@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   resources :orders, only: %i[edit update]
   resources :order_items
 
+  namespace :admin do
+    resources :users, only: %i[index]
+  end
+
   root 'home#index'
 end

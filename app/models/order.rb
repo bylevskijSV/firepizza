@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   before_save :set_total
 
-  validate data
+  # validate data
   validates :name,
             presence: true,
             format: /[А-Яа-яЁё]/,

@@ -36,6 +36,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'draper', '~> 4.0'
 # https://github.com/micke/valid_email2
 gem 'valid_email2', '~> 4.0'
+# https://github.com/rubyzip/rubyzip
+gem 'rubyzip', '~> 2.0'
+# https://github.com/caxlsx/caxlsx_rails
+gem 'caxlsx', '~> 3.1'
+gem 'caxlsx_rails', '~> 0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
