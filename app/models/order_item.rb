@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrderItem < ApplicationRecord
   belongs_to :order
   belongs_to :product
@@ -18,6 +20,7 @@ class OrderItem < ApplicationRecord
   end
 
   private
+
   def set_unit_price
     self[:unit_price] = unit_price
   end

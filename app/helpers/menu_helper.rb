@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module MenuHelper
-  def all_full_row?
-    row_count == row_count_ceil
+  def all_full_row?(product)
+    row_count(product) == row_count_ceil(product)
   end
 
-  def row_count
-    @pizzas.count / quantity_in_a_row.to_f
+  def row_count(product)
+    product.count / quantity_in_a_row.to_f
   end
 
-  def row_count_ceil
-    (@pizzas.count / quantity_in_a_row.to_f).ceil
+  def row_count_ceil(product)
+    (product.count / quantity_in_a_row.to_f).ceil
   end
 
   def quantity_in_a_row

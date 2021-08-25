@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/MethodLength
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
     create_table :orders do |t|
@@ -17,3 +20,4 @@ class CreateOrders < ActiveRecord::Migration[6.1]
     end
   end
 end
+# rubocop:enable Metrics/MethodLength

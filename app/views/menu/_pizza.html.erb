@@ -8,12 +8,12 @@
   end
 %>
 
-<% row_count_ceil.times do |i| %>
+<% row_count_ceil(@pizzas).times do |i| %>
   <% iter = 1 + i %>
 
   <div class="line<%= iter.even? ? "" : "two" %>"></div>
   <div class="pizzas">
-    <div class="pizza_row<%= (iter == row_count_ceil) && !all_full_row? ? "_two" : ""%>">
+    <div class="pizza_row<%= (iter == row_count_ceil(@pizzas)) && !all_full_row?(@pizzas) ? "_two" : ""%>">
 
       <% @pizzas.each do |pizza| %>
         <% if pizza.position.between?(f_border, s_border) %>

@@ -1,5 +1,5 @@
-class CartsController < ApplicationController
+# frozen_string_literal: true
 
-  def show
-  end
+class CartsController < ApplicationController
+  def show; end
 end

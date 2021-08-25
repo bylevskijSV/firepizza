@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Grapes
   module V1
     class Ping < Grape::API

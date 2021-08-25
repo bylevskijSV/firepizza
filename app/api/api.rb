@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class API < Grape::API
   prefix 'api'
   format :json
@@ -10,7 +12,7 @@ class API < Grape::API
   rescue_from Grape::Exceptions::ValidationErrors do |e|
     rack_response({
       status: e.status,
-      error_msg: e.message,
+      error_msg: e.message
     }.to_json, 400)
   end
 end

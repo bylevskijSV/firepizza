@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   include Pagy::Frontend
-  
+  # rubocop:disable Rails/OutputSafety
   def pagination(obj)
     raw(pagy_nav(obj)) if obj.pages > 1
   end
-
+  # rubocop:enable Rails/OutputSafety
 
   def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
+    if session[:order_id].nil?
+      order = Order.new
+      order.save(validate: false)
+      session[:order_id] = order.id
+      order
     else
-      @order = Order.new
-      @order.save(validate: false)
-      session[:order_id] = @order.id
-      @order
+      Order.find(session[:order_id])
     end
   end
 
-  def full_title(page_title = "")
+  def full_title(page_title = '')
     base_title = 'FirePizza'
     if page_title.present?
       "#{page_title} | #{base_title}"

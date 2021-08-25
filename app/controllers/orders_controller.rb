@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   include OrdersHelper
   helper_method :order_total
-  before_action :set_order, only: [:edit, :update]
+  before_action :set_order, only: %i[edit update]
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @order.update(order_params)
@@ -18,8 +19,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def confirm
-  end
+  def confirm; end
 
   private
 

@@ -15,7 +15,7 @@
       Цена: <%= item.total_price %> BYN
     </div>
   <% end %>
-  <p>Итого <%= order_total %> BYN </p>
+  <p>Итого <%= order_total(current_order) %> BYN </p>
 <% else %>
   <p> Корзина пуста.</p>
 <% end %>
