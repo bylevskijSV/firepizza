@@ -1,4 +1,5 @@
 wb = xlsx_package.workbook
+s = wb.styles
 
 highlight_cell = s.add_style(bg_color: "EFC376")
 right_cell = s.add_style(border: Axlsx::STYLE_THIN_BORDER,

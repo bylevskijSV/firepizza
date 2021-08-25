@@ -41,7 +41,10 @@ gem 'rubyzip', '~> 2.0'
 # https://github.com/caxlsx/caxlsx_rails
 gem 'caxlsx', '~> 3.1'
 gem 'caxlsx_rails', '~> 0.6'
+# https://github.com/weshatheleopard/rubyXL
+gem 'rubyXL', '~> 3.4'
 
+gem 'activerecord-import', '~> 1.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -26,8 +26,16 @@
           <%= render @users %>
         </tbody>
       </table>
+      <div class="delivery-content-form-minsk">
+        Загрузить пользователей из XLSX
 
+        <%= form_with url: admin_users_path do |f|%>
+          <%= f.file_field :archive %>
+          <%= f.submit 'Загрузить', class: "send-email" %>
+        <% end %>
+      </div>
     </div>
+    
   </div>
 </section>
 
