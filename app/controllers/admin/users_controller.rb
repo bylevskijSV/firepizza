@@ -13,9 +13,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    if params[:archive].present?
-      UserBulkService.call params[:archive]
-    end
+    UserBulkService.call params[:archive] if params[:archive].present?
 
     redirect_to admin_users_path
   end

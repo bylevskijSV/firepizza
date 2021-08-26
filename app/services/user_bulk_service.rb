@@ -18,11 +18,11 @@ class UserBulkService < ApplicationService
   def users_from(entry)
     sheet = RubyXL::Parser.parse_buffer(entry.get_input_stream.read)[0]
     sheet.map do |row|
-      cells = row.cells
+      celss = row.cells
       User.new name: celss[0].value,
                 email: celss[1].value,
                 password: celss[2].value,
-                password_confirmation: cell[2].value
+                password_confirmation: celss[2].value
     end
   end
 end
