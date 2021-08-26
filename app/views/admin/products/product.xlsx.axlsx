@@ -1,0 +1,14 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Product") do |sheet|
+  sheet.add_row ["ID", product.id]
+  sheet.add_row ["Name", product.name]
+  sheet.add_row ["Price", product.price]
+  sheet.add_row ["Ingredients", product.ingredients]
+  sheet.add_row ["Description", product.description]
+  sheet.add_row ["Weight", product.weight]
+  sheet.add_row ["Photo", product.photo]
+  sheet.add_row ["Position", product.position]
+  sheet.add_row ["Created_at", product.created_at]
+  sheet.add_row ["Updated_at", product.updated_at]
+end

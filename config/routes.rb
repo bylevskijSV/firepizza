@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: %i[index create]
+    resources :products, only: %i[index create]
   end
 
   root 'home#index'

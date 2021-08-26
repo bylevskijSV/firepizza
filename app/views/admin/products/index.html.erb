@@ -1,0 +1,42 @@
+<% provide :page_title, 'Товары' %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'styles_delivery', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= pagination @pagy %>
+
+<section>
+  <div class="cart">
+    <div class="cart-headline">
+      <p>Admin panel</p>
+    </div>
+    <div class="cart-content">
+      <%= link_to 'Cкачать zip архив xlsx', admin_products_path(format: :zip) %>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @products %>
+        </tbody>
+      </table>
+      <div class="delivery-content-form-minsk">
+        Загрузить товары из XLSX
+
+        <%= form_with url: admin_products_path do |f|%>
+          <%= f.file_field :archive %>
+          <%= f.submit 'Загрузить', class: "send-email" %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<%= pagination @pagy%>
