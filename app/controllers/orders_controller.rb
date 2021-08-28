@@ -8,11 +8,10 @@ class OrdersController < ApplicationController
   def edit; end
 
   def update
-    if @order.update(order_params)
-      set_confirmed_by
-      SendTelegramWorker.perform_async(order_text, @order.id)
-      session.delete(:order_id)
-      session.delete(:cart)
+    if @order.update order_params
+      SendTelegramWorker.perform_async @order.order_text, @order.id
+      session.delete :order_id
+      session.delete :cart
       render :confirm
     else
       render :edit, location: edit_order_path
@@ -28,6 +27,6 @@ class OrdersController < ApplicationController
   end
 
   def set_order
-    @order = Order.find(params[:id])
+    @order = Order.find params[:id]
   end
 end

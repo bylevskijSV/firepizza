@@ -2,6 +2,7 @@
 
 module ApplicationHelper
   include Pagy::Frontend
+
   # rubocop:disable Rails/OutputSafety
   def pagination(obj)
     raw(pagy_nav(obj)) if obj.pages > 1

@@ -5,7 +5,6 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = OrderItem.create(order_item_params.merge(order_id: session[:order_id]))
-    current_order.save(validate: false)
     added_in_session_cart(params[:order_item][:product_id])
   end
 

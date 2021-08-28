@@ -1,8 +1,9 @@
-# frozen_string_literal: true
 
 class Order < ApplicationRecord
+  include OrderText
   has_many :order_items, dependent: :destroy
   before_save :set_total
+  before_update :set_confirmed_by, if: proc { confirmed_by? }
 
   # validate data
   validates :name,
@@ -27,61 +28,24 @@ class Order < ApplicationRecord
             on: :update
 
   def order_total_price
-    order_items.sum { |order_item| get_order_price_item(order_item) }
+    order_items.sum { |order_item| get_order_price_item order_item }
   end
 
   def get_order_price_item(order_item)
     order_item.valid? ? order_item.total : 0
   end
 
-  def order_text
-    message << order_info_to_string
-    message << "-------------\n"
-    message << order_product_to_string
-    message << "-------------\n"
-    message << "За всё: #{@order.total_for_pizzas} BYN"
-  end
-
-  def order_info_to_string
-    message = "Информация о заказе: #{@order.id}\n"
-    message << "-------------\n"
-    message << "Имя: #{@order.name}\nТелефон: #{@order.phone}\n"
-    message << "-------------\n"
-    message << "Улица: #{@order.street}\n"
-    message << "Номер дома: #{@order.house_number}\nНомер Подьезда:#{@order.subway_number}\n"
-    message << "Номер квартиры:#{@order.apartment_number}\n"
-
-    message << order_note_to_string
-  end
-
-  def order_note_to_string
-    if @order.note.empty?
-      "Примечания отсуствуют\n"
-    else
-      "Примечание: #{@order.note}\n"
-    end
-  end
-
-  def order_product_to_string
-    order_item_info = "Пиццы:\n"
-
-    raise ActiveModel::Error.new(Order, :order_to_string, :too_short, count: 1) if @order.order_items.empty?
-
-    @order.order_items.each do |item|
-      order_item_info << "#{item.product.name}:#{item.quantity}\n"
-    end
-
-    order_item_info
-  end
-
-  def set_confirmed_by
-    @order.confirmed_by = true
-    @order.save
+  def confirmed_by?
+    true unless name.nil?
   end
 
   private
 
+  def set_confirmed_by
+    self.confirmed_by = true
+  end
+
   def set_total
-    self[:total_for_pizzas] = order_total_price
+    self.total_for_pizzas = order_total_price
   end
 end
