@@ -20,12 +20,12 @@ class ProductBulkService < ApplicationService
     sheet.map do |row|
       celss = row.cells
       Product.new name: celss[0].value,
-                price: celss[1].value,
-                ingredients: celss[2].value,
-                description: celss[3].value,
-                weight: celss[4].value,
-                photo: celss[5].value,
-                position: celss[6].value
+                  price: celss[1].value,
+                  ingredients: celss[2].value,
+                  description: celss[3].value,
+                  weight: celss[4].value,
+                  photo: celss[5].value,
+                  position: celss[6].value
     end
   end
 end
